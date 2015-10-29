@@ -3,4 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_local_weather">LocalWeather</string>
+    <string name="tempretureTextVeiw">Tempreture</string>
+    <string name="locationTextView">Location</string>
+    <string name="conditionTextView">Condition</string>
+    <string name="cityTextView">City</string>
 </resources>
