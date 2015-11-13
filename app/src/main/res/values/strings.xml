@@ -8,4 +8,9 @@
     <string name="locationTextView">Location</string>
     <string name="conditionTextView">Condition</string>
     <string name="cityTextView">City</string>
+    <string name="title_activity_cloth_match">clothMatch</string>
+    <string name="title_activity_cloth_match_new">ClothMatchNew</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -3,8 +3,9 @@
     package="edu.asu.mc29.mywardrobe" >
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -23,6 +24,22 @@
         <activity
             android:name=".LocalWeather"
             android:label="@string/title_activity_local_weather"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ClothMatch"
+            android:label="@string/title_activity_cloth_match"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ClothMatchNew"
+            android:label="@string/title_activity_cloth_match_new"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

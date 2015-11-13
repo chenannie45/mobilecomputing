@@ -47,4 +47,11 @@ public class MainActivity extends AppCompatActivity {
         */
         startActivity(intent);
     }
+
+    public  void  triggerMatch(View view){
+        Intent intent = new Intent(this, ClothMatchNew.class);
+        startActivity(intent);
+
+    }
+
 }
