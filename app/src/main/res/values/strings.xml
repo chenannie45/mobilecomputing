@@ -8,4 +8,14 @@
     <string name="locationTextView">Location</string>
     <string name="conditionTextView">Condition</string>
     <string name="cityTextView">City</string>
+    <string name="title_activity_image_capture">ImageCapture</string>
+    <string-array name="category_type_arrays">
+        <item>Shorts</item>
+        <item>T-shirts</item>
+        <item>Pants</item>
+        <item>Suits</item>
+        <item>Formals</item>
+        <item>Other</item>
+    </string-array>
+    <string name="category_type">Captured Image Category</string>
 </resources>

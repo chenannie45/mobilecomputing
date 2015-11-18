@@ -7,5 +7,6 @@ import edu.asu.mc29.mywardrobe.data.Channel;
  */
 public interface WeatherServiceCallback {
     void serviceSuccess(Channel channel);
+
     void serviceFailure(Exception exception);
 }

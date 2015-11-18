@@ -27,14 +27,15 @@ import edu.asu.mc29.mywardrobe.service.WeatherServiceCallback;
 import edu.asu.mc29.mywardrobe.service.YahooWeatherService;
 
 
-public class LocalWeather extends AppCompatActivity implements LocationListener, WeatherServiceCallback{
+public class LocalWeather extends AppCompatActivity implements LocationListener,
+        WeatherServiceCallback {
 
     protected LocationManager locationManager;
     //private TextView cityLat;
     protected String finalAddress;
     private ImageView weatherIconImageView;
-    private  TextView tempretureTextView;
-    private  TextView conditionTextView;
+    private TextView tempretureTextView;
+    private TextView conditionTextView;
     private TextView locationTextView;
     private YahooWeatherService service;
     private ProgressDialog dialog;
@@ -44,10 +45,10 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_local_weather);
 
-        weatherIconImageView = (ImageView)findViewById(R.id.weatherImageView);
-        tempretureTextView = (TextView)findViewById(R.id.tempretureTextView);
-        conditionTextView = (TextView)findViewById(R.id.conditionTextView);
-        locationTextView = (TextView)findViewById(R.id.locationTextView);
+        weatherIconImageView = (ImageView) findViewById(R.id.weatherImageView);
+        tempretureTextView = (TextView) findViewById(R.id.tempretureTextView);
+        conditionTextView = (TextView) findViewById(R.id.conditionTextView);
+        locationTextView = (TextView) findViewById(R.id.locationTextView);
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
@@ -55,8 +56,7 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         try {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 10, this);
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             throw ex;
         }
     }
@@ -67,11 +67,13 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
 
         Item item = channel.getItem();
 
-        int resourcesID = getResources().getIdentifier("drawable/i"+channel.getItem().getCondition().getCode(),null,getPackageName());
+        int resourcesID = getResources().getIdentifier("drawable/i" + channel.getItem()
+                .getCondition().getCode(), null, getPackageName());
         @SuppressWarnings("deprecation")
         Drawable weatherIconDrawable = getResources().getDrawable(resourcesID);
         weatherIconImageView.setImageDrawable(weatherIconDrawable);
-        tempretureTextView.setText(item.getCondition().getTempreture() + "\u00b0" + channel.getUnits().getTempreture());
+        tempretureTextView.setText(item.getCondition().getTempreture() + "\u00b0" + channel
+                .getUnits().getTempreture());
         conditionTextView.setText(item.getCondition().getDescription());
         locationTextView.setText(finalAddress);
 
@@ -81,7 +83,7 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
     @Override
     public void serviceFailure(Exception exception) {
         dialog.hide();
-        Toast.makeText(this,exception.getMessage(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, exception.getMessage(), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -91,32 +93,34 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
         Geocoder geoCoder = new Geocoder(this, Locale.getDefault());
         StringBuilder builder = new StringBuilder();
         try {
-            List<Address> address = geoCoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            if(address.size() > 0 ){
-                finalAddress = address.get(0).getLocality()+", "+address.get(0).getAdminArea();
+            List<Address> address = geoCoder.getFromLocation(location.getLatitude(),
+                    location.getLongitude(), 1);
+            if (address.size() > 0) {
+                finalAddress = address.get(0).getLocality() + ", " + address.get(0).getAdminArea();
                 service = new YahooWeatherService(this);
                 service.refreshWeather(finalAddress);
             }
             //cityLat = (TextView)findViewById(R.id.cityTextView);
             //cityLat.setText(finalAddress); //This will display the final address.
 
-        } catch (IOException e) {}
-        catch (NullPointerException e) {}
+        } catch (IOException e) {
+        } catch (NullPointerException e) {
+        }
     }
 
     @Override
     public void onProviderDisabled(String provider) {
-        Log.d("Latitude","disable");
+        Log.d("Latitude", "disable");
     }
 
     @Override
     public void onProviderEnabled(String provider) {
-        Log.d("Latitude","enable");
+        Log.d("Latitude", "enable");
     }
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
-        Log.d("Latitude","status");
+        Log.d("Latitude", "status");
     }
 
     @Override
