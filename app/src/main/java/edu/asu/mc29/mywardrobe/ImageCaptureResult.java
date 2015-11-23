@@ -4,6 +4,7 @@ import com.squareup.picasso.Picasso;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.IOException;
 
 import edu.asu.mc29.mywardrobe.commons.ImageOperations;
 import edu.asu.mc29.mywardrobe.data.Constants;
@@ -23,6 +29,8 @@ public class ImageCaptureResult extends AppCompatActivity {
     private ImageView imageView;
     private Button recaptureButton;
     private Button doneButton;
+    private Spinner categorySelection;
+    private String filePath;
 
     /**
      * Starts the activity for taking picture from the existing camera application installed on
@@ -43,12 +51,22 @@ public class ImageCaptureResult extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.show_image);
         recaptureButton = (Button) findViewById(R.id.recapture_button);
         doneButton = (Button) findViewById(R.id.done_button);
+        categorySelection = (Spinner) findViewById(R.id.category_selection);
         addDoneButtonListener(doneButton);
         addRecaptureButtonListener(recaptureButton);
-        Log.d("debug",getIntent().getStringExtra("filePath"));
-        Picasso.with(this).load("file://"+getIntent().getStringExtra("filePath"))
-                .fit()
-                .into(imageView);
+        filePath = getIntent().getStringExtra("filePath");
+        Log.e("debug", getIntent().getStringExtra("filePath"));
+        /*try {
+            String newBitmapPath = mImageOperations.removeBackground(getIntent().getStringExtra("filePath"));
+            Picasso.with(this).load("file://" + newBitmapPath)
+                    .fit().centerInside()
+                    .into(imageView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+*/
+        GetBackGround getBackGroundtask = new GetBackGround();
+        getBackGroundtask.execute(filePath);
         /*Bitmap imageToShow = mImageOperations.scaleImage(getIntent().getStringExtra("filePath"),
                 imageView.getHeight(), imageView.getWidth());
         imageView.setImageBitmap(imageToShow);*/
@@ -58,8 +76,19 @@ public class ImageCaptureResult extends AppCompatActivity {
         doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                //Saving the image to appropriate clothType folder
+                if (categorySelection.getSelectedItem() != null) {
+                    Log.e("before image Operation", "Here");
+                    mImageOperations.moveImagetoCategoryImage(new File(filePath),
+                            categorySelection.getSelectedItem().toString());
+
+                    finish();
+                } else {
+                    Toast.makeText(getBaseContext(), "Select a category for the image",
+                            Toast.LENGTH_SHORT).show();
+                }
                 //Succesfully completing the Activity
-                finish();
+
             }
         });
     }
@@ -92,5 +121,30 @@ public class ImageCaptureResult extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class GetBackGround extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                String newBitmapPath = mImageOperations.removeBackground(getIntent().
+                        getStringExtra("filePath"));
+                return newBitmapPath;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Picasso.with(getBaseContext()).load("file://" + result)
+                    .fit().centerInside()
+                    .into(imageView);
+
+        }
+
     }
 }

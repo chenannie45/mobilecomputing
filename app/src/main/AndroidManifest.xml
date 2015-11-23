@@ -1,45 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="edu.asu.mc29.mywardrobe">
+    package="edu.asu.mc29.mywardrobe" >
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-feature
-            android:name="android.hardware.camera2"
-            android:required="true"/>
+        android:name="android.hardware.camera2"
+        android:required="true" />
 
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
         <activity
-                android:name=".MainActivity"
-                android:label="@string/app_name">
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".LocalWeather"
-                android:label="@string/title_activity_local_weather"
-                android:parentActivityName=".MainActivity">
+            android:name=".LocalWeather"
+            android:label="@string/title_activity_local_weather"
+            android:parentActivityName=".MainActivity" >
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="edu.asu.mc29.mywardrobe.MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.MainActivity" />
         </activity>
         <activity
-                android:name=".ImageCaptureResult"
-                android:label="@string/title_activity_image_capture"
-                android:parentActivityName=".MainActivity">
+            android:name=".ImageCaptureResult"
+            android:label="@string/title_activity_image_capture"
+            android:parentActivityName=".MainActivity" >
             <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="edu.asu.mc29.mywardrobe.MainActivity"/>
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ClothMenu"
+            android:label="@string/title_activity_cloth_menu"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.MainActivity" />
+        </activity>
+        <activity
+            android:name=".DisplayClothes"
+            android:label="@string/title_activity_display_clothes"
+            android:parentActivityName=".ClothMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.asu.mc29.mywardrobe.ClothMenu" />
+        </activity>
+        <activity
+            android:name=".backGroundRemovalTest"
+            android:label="@string/title_activity_back_ground_removal_test" >
         </activity>
     </application>
 

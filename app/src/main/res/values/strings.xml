@@ -18,4 +18,7 @@
         <item>Other</item>
     </string-array>
     <string name="category_type">Captured Image Category</string>
+    <string name="title_activity_cloth_menu">ClothMenu</string>
+    <string name="title_activity_display_clothes">DisplayClothes</string>
+    <string name="title_activity_back_ground_removal_test">backGroundRemovalTest</string>
 </resources>

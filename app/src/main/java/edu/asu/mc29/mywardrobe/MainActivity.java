@@ -20,6 +20,7 @@ import edu.asu.mc29.mywardrobe.data.Constants;
 public class MainActivity extends AppCompatActivity {
     private Button cameraButton;
     private ImageOperations mImageOperations;
+    private Button clothMenuButton;
     private File tempPhotoFileToShare;
 
     @Override
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mImageOperations = new ImageOperations();
         addListenerOnButton();
+
     }
 
     @Override
@@ -65,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnButton() {
 
         cameraButton = (Button) findViewById(R.id.cameraButton);
+        clothMenuButton = (Button) findViewById(R.id.clothMenuButton);
 
         cameraButton.setOnClickListener(new View.OnClickListener() {
 
@@ -74,6 +77,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        clothMenuButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                activateClothMenuActivity();
+            }
+        });
+
+    }
+    private void activateClothMenuActivity(){
+        Intent seeClothMenu = new Intent(this, ClothMenu.class);
+        startActivity(seeClothMenu);
     }
 
     private void activateCameraToCaptureImage() {
