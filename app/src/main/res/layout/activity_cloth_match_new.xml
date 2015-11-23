@@ -1,13 +1,84 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="edu.asu.mc29.mywardrobe.ClothMatchNew">
 
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:id="@+id/categorySpinner">
+
+        </Spinner>
+
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/detailFrame"/>
+        android:layout_width="fill_parent"
+        android:layout_height="460dp"
+
+        android:id="@+id/listFrame"
+
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="fill_parent"
+
+        android:id="@+id/imagesPanel"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40dp">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageHat"
+                android:onClick="removeHat"/>
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageGlass"
+                android:onClick="removeGlass"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/topMiddle"
+                android:onClick="removeTop"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageBottom"
+                android:onClick="removeBottom"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="80dp">
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/imageShoes"
+                android:onClick="removeShoes"/>
+        </LinearLayout>
+    </LinearLayout>
+
 <!--312312-->
 
 
