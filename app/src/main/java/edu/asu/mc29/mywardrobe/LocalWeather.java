@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
     private TextView locationTextView;
     private YahooWeatherService service;
     private ProgressDialog dialog;
+    private ListView eventListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,9 @@ public class LocalWeather extends AppCompatActivity implements LocationListener,
         tempretureTextView = (TextView) findViewById(R.id.tempretureTextView);
         conditionTextView = (TextView) findViewById(R.id.conditionTextView);
         locationTextView = (TextView) findViewById(R.id.locationTextView);
+
+        eventListView = (ListView) findViewById(R.id.event_list);
+        eventListView.setAdapter(new EventsListViewAdapter(this));
 
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");

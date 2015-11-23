@@ -52,7 +52,7 @@ public class ClothGridViewAdapter extends BaseAdapter {
         Picasso.with(context)
                 .load("file://" + files[position])
                 .fit().centerInside()
-                .into((ImageView) imageView);
+                .into(imageView);
 
         return convertView;
 

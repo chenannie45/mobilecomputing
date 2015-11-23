@@ -56,17 +56,12 @@ public class ImageCaptureResult extends AppCompatActivity {
         addRecaptureButtonListener(recaptureButton);
         filePath = getIntent().getStringExtra("filePath");
         Log.e("debug", getIntent().getStringExtra("filePath"));
-        /*try {
-            String newBitmapPath = mImageOperations.removeBackground(getIntent().getStringExtra("filePath"));
-            Picasso.with(this).load("file://" + newBitmapPath)
-                    .fit().centerInside()
-                    .into(imageView);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-*/
-        GetBackGround getBackGroundtask = new GetBackGround();
-        getBackGroundtask.execute(filePath);
+        //String newBitmapPath = mImageOperations.removeBackground(getIntent().getStringExtra("filePath"));
+        Picasso.with(this).load("file://" + getIntent().getStringExtra("filePath"))
+                .fit().centerInside()
+                .into(imageView);
+        //GetBackGround getBackGroundtask = new GetBackGround();
+        //getBackGroundtask.execute(filePath);
         /*Bitmap imageToShow = mImageOperations.scaleImage(getIntent().getStringExtra("filePath"),
                 imageView.getHeight(), imageView.getWidth());
         imageView.setImageBitmap(imageToShow);*/

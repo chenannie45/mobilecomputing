@@ -42,8 +42,8 @@ public class ClothMenu extends AppCompatActivity {
         buttonToImage.put(formals, R.drawable.formals);
         buttonToImage.put(suits, R.drawable.suit);
         buttonToImage.put(tshirts, R.drawable.tshirts);
-        buttonToImage.put(shoes, R.drawable.shoes);
-        buttonToImage.put(glasses, R.drawable.glasses);
+        buttonToImage.put(shoes, R.drawable.tshirts);
+        buttonToImage.put(glasses, R.drawable.tshirts);
         setImage(pants);
         setImage(formals);
         setImage(suits);
