@@ -15,24 +15,24 @@
         android:text="Weather"
         android:id="@+id/weatherButton"
         android:onClick="triggerWeather"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weather"
+        android:id="@+id/weatherButton"
+        android:onClick="triggerWeather"
         android:layout_above="@+id/cameraButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/cameraButton"
+        android:text="Match"
+        android:id="@+id/matchButton"
+        android:onClick="triggerMatch"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="Check Camera"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/clothMenuButton"
-        android:text="Cloth Menu"
-        android:layout_marginTop="51dp"
-        android:layout_below="@+id/cameraButton"
-        android:layout_alignRight="@+id/cameraButton"
-        android:layout_alignEnd="@+id/cameraButton" />
-
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

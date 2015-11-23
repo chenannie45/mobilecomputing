@@ -121,4 +121,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+    public  void  triggerMatch(View view){
+        Intent intent = new Intent(this, ClothMatchNew.class);
+        startActivity(intent);
+
+    }
+
 }
