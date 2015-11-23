@@ -1,45 +1,77 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.asu.mc29.mywardrobe.LocalWeather"
-    >
+    android:orientation="vertical"
+    android:weightSum="4"
+    tools:context="edu.asu.mc29.mywardrobe.LocalWeather">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/weatherImageView"
-        android:src="@drawable/na"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/tempretureTextView"
-        android:text="@string/tempretureTextVeiw"
-        android:textStyle="bold"
-        android:layout_below="@+id/weatherImageView"
-        android:layout_centerHorizontal="true" />
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/locationTextView"
-        android:textStyle="bold"
-        android:text="@string/locationTextView"
-        android:layout_below="@+id/tempretureTextView"
-        android:layout_centerHorizontal="true" />
+            <ImageView
+                android:id="@+id/weatherImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/na" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/conditionTextView"
-        android:textStyle="bold"
-        android:text="@string/conditionTextView"
-        android:layout_below="@+id/locationTextView"
-        android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/tempretureTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weatherImageView"
+                android:layout_centerHorizontal="true"
+                android:text="@string/tempretureTextVeiw"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textStyle="bold" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/locationTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tempretureTextView"
+                android:layout_centerHorizontal="true"
+                android:text="@string/locationTextView"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/conditionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/locationTextView"
+                android:layout_centerHorizontal="true"
+                android:text="@string/conditionTextView"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/events_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tempretureTextView"
+                android:text="Events"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -5,10 +5,13 @@ import com.squareup.picasso.Picasso;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.ImageView;
 
+/*
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
 import org.opencv.core.Core;
@@ -16,6 +19,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.imgproc.Imgproc;
+*/
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,11 +37,11 @@ public class ImageOperations {
 
     private String mCurrentPhotoPath;
     private File mStorageDir;
-    static {
+   /* static {
         if (!OpenCVLoader.initDebug()) {
             // Handle initialization error
         }
-    }
+    }*/
 
     /**
      * Creates unique file path for writing photo to storage*
@@ -113,7 +117,8 @@ public class ImageOperations {
      * grabCutImageSegmentation(OpenCV library function)
      */
     public String removeBackground(String bitmapImgPath) throws IOException {
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        return null;
+     /*   BitmapFactory.Options bmOptions = new BitmapFactory.Options();
         bmOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
         Bitmap bitmapImg = BitmapFactory.decodeFile(bitmapImgPath, bmOptions);
         //GrabCut part
@@ -184,7 +189,10 @@ public class ImageOperations {
         }
 
         return newFile.getAbsolutePath();
-
+*/
     }
+
 }
+
+
 

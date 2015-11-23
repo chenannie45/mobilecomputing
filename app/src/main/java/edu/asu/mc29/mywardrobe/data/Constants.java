@@ -14,11 +14,13 @@ public class Constants {
     public static final String IMG_FILE_SUFFIX = ".png";
     public static final Map<Integer, String>imgToFolderNameMap = new HashMap<Integer,String>(){
         {
-            put(R.id.pants_button,"Pants");
-            put(R.id.formal_button,"Formals");
-            put(R.id.suit_button,"Suits");
-            put(R.id.tshirts_button,"T-shirts");
-            put(R.id.others_button,"Other");
+            put(R.id.pants_button,"Bottoms");
+            put(R.id.formal_button,"Formal Bottoms");
+            put(R.id.suit_button,"Formal Tops");
+            put(R.id.tshirts_button,"Tops");
+            put(R.id.shoes_button,"Shoes");
+            put(R.id.glasses_button,"Glasses");
+
         }
     };
 }

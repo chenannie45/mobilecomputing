@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public  void  triggerMatch(View view){
+        Log.e("MainActivity", "before intent trigger match");
         Intent intent = new Intent(this, ClothMatchNew.class);
         startActivity(intent);
 

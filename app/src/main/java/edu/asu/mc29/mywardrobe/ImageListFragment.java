@@ -60,6 +60,7 @@ public class ImageListFragment extends Fragment implements AdapterView.OnItemCli
         String dirPath = bundle.getString("clothpath");
         String imageCate = bundle.getString("category");
         String imagePath = dirPath + "/" + imageCate + "/";
+        Log.e("ImageListFragment",imagePath);
         mAdapter = new ImageAdapter(getActivity(), imagePath);
 
     }
@@ -116,6 +117,10 @@ public class ImageListFragment extends Fragment implements AdapterView.OnItemCli
             File targetDirector = new File(imagePath);
 
             files = targetDirector.listFiles();
+            if(files != null){
+                Log.e("ImageAdapter","inside constructor");
+
+            }
         }
 
 

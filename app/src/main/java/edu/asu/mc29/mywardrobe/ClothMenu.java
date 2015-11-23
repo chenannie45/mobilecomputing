@@ -23,8 +23,9 @@ public class ClothMenu extends AppCompatActivity {
     private ImageButton formals;
     private ImageButton suits;
     private ImageButton tshirts;
-    private ImageButton others;
+    private ImageButton shoes;
     Map<ImageButton, Integer> buttonToImage;
+    private ImageButton glasses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +35,21 @@ public class ClothMenu extends AppCompatActivity {
         formals = (ImageButton) findViewById(R.id.formal_button);
         suits = (ImageButton) findViewById(R.id.suit_button);
         tshirts = (ImageButton) findViewById(R.id.tshirts_button);
-        others = (ImageButton) findViewById(R.id.others_button);
+        shoes = (ImageButton) findViewById(R.id.shoes_button);
+        glasses = (ImageButton) findViewById(R.id.glasses_button);
         buttonToImage = new HashMap<>();
         buttonToImage.put(pants, R.drawable.pants);
         buttonToImage.put(formals, R.drawable.formals);
         buttonToImage.put(suits, R.drawable.suit);
         buttonToImage.put(tshirts, R.drawable.tshirts);
-        buttonToImage.put(others, R.drawable.others);
+        buttonToImage.put(shoes, R.drawable.shoes);
+        buttonToImage.put(glasses, R.drawable.glasses);
         setImage(pants);
         setImage(formals);
         setImage(suits);
-        setImage(others);
+        setImage(shoes);
         setImage(tshirts);
+        setImage(glasses);
 
 
     }

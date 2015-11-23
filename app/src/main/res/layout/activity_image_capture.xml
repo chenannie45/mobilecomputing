@@ -47,7 +47,7 @@
             android:id="@+id/category_selection"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:entries="@array/category_type_arrays"
+            android:entries="@array/category_array"
             android:prompt="@string/category_type" />
     </LinearLayout>
 
